@@ -30,3 +30,5 @@ showdown-*.tar
 *.ez
 /build
 erl_crash.dump
+.vscode
+.tool-versions

@@ -197,3 +197,28 @@ pub fn get_dualtype_modifier(souce: Types, target: DualType) -> Modifier {
 
   combine_modifiers(mod1, mod2)
 }
+
+pub fn modifier_value(mod: Modifier) -> Float {
+  case mod {
+    None -> 0.0
+    Same -> 1.0
+    Half -> 0.5
+    Double -> 2.0
+    Quarter -> 0.25
+    Quadruple -> 4.0
+  }
+}
+
+pub fn string_to_type(s: String) -> Types {
+  case s {
+    "spirit" -> SPIRIT
+    "water" -> WATER
+    "wind" -> WIND
+    "earth" -> EARTH
+    "fire" -> FIRE
+    "lightning" -> LIGHTNING
+    "plant" -> PLANT
+    "elder" -> ELDER
+    _ -> NONE
+  }
+}

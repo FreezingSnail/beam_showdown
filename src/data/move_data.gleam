@@ -1,0 +1,302 @@
+pub fn move_json() -> String {
+  "
+    [
+    {
+        \"id\": 0,
+        \"name\": \"smite\",
+        \"type\": \"spirit\",
+        \"power\": 10,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 1,
+        \"name\": \"thought\",
+        \"type\": \"spirit\",
+        \"power\": 5,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 2,
+        \"name\": \"wisper\",
+        \"type\": \"spirit\",
+        \"power\": 7,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 3,
+        \"name\": \"blast\",
+        \"type\": \"spirit\",
+        \"power\": 10,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 4,
+        \"name\": \"splash\",
+        \"type\": \"water\",
+        \"power\": 5,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 5,
+        \"name\": \"squirt\",
+        \"type\": \"water\",
+        \"power\": 7,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 6,
+        \"name\": \"soak\",
+        \"type\": \"water\",
+        \"power\": 10,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 7,
+        \"name\": \"current\",
+        \"type\": \"water\",
+        \"power\": 7,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 8,
+        \"name\": \"breeze\",
+        \"type\": \"wind\",
+        \"power\": 5,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"EGOED\"
+    },
+    {
+        \"id\": 9,
+        \"name\": \"bellow\",
+        \"type\": \"wind\",
+        \"power\": 10,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 10,
+        \"name\": \"torrent\",
+        \"type\": \"wind\",
+        \"power\": 10,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 11,
+        \"name\": \"blow\",
+        \"type\": \"wind\",
+        \"power\": 7,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 12,
+        \"name\": \"dirtburst\",
+        \"type\": \"earth\",
+        \"power\": 7,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 13,
+        \"name\": \"slipfall\",
+        \"type\": \"earth\",
+        \"power\": 5,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 14,
+        \"name\": \"dirtfall\",
+        \"type\": \"earth\",
+        \"power\": 7,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 15,
+        \"name\": \"shatter\",
+        \"type\": \"earth\",
+        \"power\": 10,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 16,
+        \"name\": \"burn\",
+        \"type\": \"fire\",
+        \"power\": 8,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 17,
+        \"name\": \"melt\",
+        \"type\": \"fire\",
+        \"power\": 12,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 18,
+        \"name\": \"torch\",
+        \"type\": \"fire\",
+        \"power\": 12,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 19,
+        \"name\": \"stoke\",
+        \"type\": \"fire\",
+        \"power\": 6,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 20,
+        \"name\": \"bolt\",
+        \"type\": \"lightning\",
+        \"power\": 7,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 21,
+        \"name\": \"plasma\",
+        \"type\": \"lightning\",
+        \"power\": 12,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 22,
+        \"name\": \"coil\",
+        \"type\": \"lightning\",
+        \"power\": 12,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 23,
+        \"name\": \"zap\",
+        \"type\": \"lightning\",
+        \"power\": 7,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 24,
+        \"name\": \"pollen\",
+        \"type\": \"plant\",
+        \"power\": 6,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 25,
+        \"name\": \"pollenburst\",
+        \"type\": \"plant\",
+        \"power\": 12,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 26,
+        \"name\": \"seedfall\",
+        \"type\": \"plant\",
+        \"power\": 12,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 27,
+        \"name\": \"root\",
+        \"type\": \"plant\",
+        \"power\": 8,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 28,
+        \"name\": \"burst\",
+        \"type\": \"elder\",
+        \"power\": 8,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 29,
+        \"name\": \"elderBurst\",
+        \"type\": \"elder\",
+        \"power\": 12,
+        \"physical\": 0,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 30,
+        \"name\": \"slam\",
+        \"type\": \"elder\",
+        \"power\": 10,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 31,
+        \"name\": \"elderSlam\",
+        \"type\": \"elder\",
+        \"power\": 14,
+        \"physical\": 1,
+        \"accuracy\": 100,
+        \"effect\": \"NONE\"
+    },
+    {
+        \"id\": 32,
+        \"name\": \"\",
+        \"type\": \"none\",
+        \"power\": 0,
+        \"physical\": 0,
+        \"accuracy\": 0,
+        \"effect\": \"NONE\"
+    }
+]"
+}

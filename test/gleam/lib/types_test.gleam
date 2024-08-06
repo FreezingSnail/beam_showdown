@@ -1,4 +1,5 @@
 import gleeunit/should
+
 import lib/types
 
 pub fn get_dualtype_modifier_test() {

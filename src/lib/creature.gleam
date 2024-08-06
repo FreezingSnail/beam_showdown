@@ -1,4 +1,5 @@
 import lib/move.{type Effect, type Move}
+import lib/types.{type DualType}
 
 pub type Stats {
   Stats(
@@ -18,6 +19,7 @@ pub type Creature {
     health: Int,
     moves: List(Move),
     stats: Stats,
+    dualtype: DualType,
     active_status: Effect,
   )
 }

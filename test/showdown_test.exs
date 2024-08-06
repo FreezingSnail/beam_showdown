@@ -1,4 +1,4 @@
-defmodule BasicProjectTest do
+defmodule ShowdownTest do
   use ExUnit.Case
 
   test "can call Elixir code" do

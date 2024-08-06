@@ -6,6 +6,10 @@ pub type PlayerState {
   PlayerState(party: #(Creature, Creature, Creature), active_creature: Creature)
 }
 
+pub fn build_party(first, second, third: Int) -> PlayerState {
+  todo
+}
+
 pub fn set_active_creature(
   playerstate: PlayerState,
   creature: Creature,
@@ -26,8 +30,9 @@ pub fn select_creature_from_party(
 }
 
 pub fn apply_active_damage(playerstate: PlayerState, damage: Int) -> PlayerState {
+  let new_health = playerstate.active_creature.health - damage
   let updated_creature =
-    creature.update_health(playerstate.active_creature, damage)
+    creature.update_health(playerstate.active_creature, new_health)
   PlayerState(..playerstate, active_creature: updated_creature)
 }
 

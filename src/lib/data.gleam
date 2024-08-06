@@ -5,6 +5,7 @@ import gleam/int
 import gleam/io
 import gleam/json
 import gleam/list
+import gleam/result
 import gleam/string
 
 import data/creature_data
@@ -12,11 +13,6 @@ import data/move_data
 import lib/creature.{type Creature, Creature}
 import lib/move.{type Effect, type Move, Move}
 import lib/types.{type DualType}
-
-pub fn get_move_list() -> List(Move) {
-  move_data.move_json()
-  |> read_moves_from_json()
-}
 
 type MoveDTO {
   MoveDTO(
@@ -52,14 +48,32 @@ pub type CreatureDTO {
   )
 }
 
-fn string_to_int(s: String) -> Int {
-  case int.parse(s) {
-    Ok(i) -> i
-    Error(_) -> 0
+pub fn get_creature_from_list(id: Int) -> Creature {
+  let creatures = get_creature_list()
+
+  case list.find(creatures, fn(c) { c.id == id }) {
+    Ok(c) -> c
+    Error(_) ->
+      Creature(
+        id: 0,
+        name: "Missings",
+        health: 0,
+        moves: [],
+        stats: creature.Stats(
+          hp: 0,
+          attack: 0,
+          defense: 0,
+          special_atk: 0,
+          special_def: 0,
+          speed: 0,
+        ),
+        dualtype: types.DualType(types.NONE, types.NONE),
+        active_status: move.NONE,
+      )
   }
 }
 
-pub fn get_creature_data() -> List(Creature) {
+pub fn get_creature_list() -> List(Creature) {
   let dto =
     creature_data.creature_json()
     |> read_creature_from_json()
@@ -82,6 +96,25 @@ pub fn get_creature_data() -> List(Creature) {
       active_status: dto.active_status,
     )
   })
+}
+
+pub fn get_move_list() -> List(Move) {
+  move_data.move_json()
+  |> read_moves_from_json()
+}
+
+pub fn get_c_d() -> List(CreatureDTO) {
+  let res =
+    creature_data.creature_json()
+    |> json.decode(dynamic.list(of: creature_decoder()))
+
+  case res {
+    Ok(data) -> data
+    Error(e) -> {
+      io.debug(e)
+      []
+    }
+  }
 }
 
 fn process_json(json_string: String) -> List(dict.Dict(String, String)) {
@@ -150,6 +183,52 @@ pub fn read_creature_from_json(json_string: String) -> List(CreatureDTO) {
   }
 }
 
+fn creatures_decoder(json_string: String) -> List(CreatureDTO) {
+  let creature_decoder = creature_decoder()
+  let creature_list_decoder = dynamic.list(creature_decoder)
+
+  let res = json.decode(from: json_string, using: creature_list_decoder)
+  case res {
+    Ok(creatures) -> creatures
+    Error(_) -> []
+  }
+}
+
+fn creature_decoder() {
+  fn(data: dynamic.Dynamic) {
+    use name <- result.try(dynamic.element(0, dynamic.string)(data))
+    use id <- result.try(dynamic.element(1, dynamic.string)(data))
+    use type1 <- result.try(dynamic.element(2, dynamic.string)(data))
+    use type2 <- result.try(dynamic.element(3, dynamic.string)(data))
+    use atk <- result.try(dynamic.element(4, dynamic.string)(data))
+    use defense <- result.try(dynamic.element(5, dynamic.string)(data))
+    use spca <- result.try(dynamic.element(6, dynamic.string)(data))
+    use spcd <- result.try(dynamic.element(7, dynamic.string)(data))
+    use hp <- result.try(dynamic.element(8, dynamic.string)(data))
+    use spd <- result.try(dynamic.element(9, dynamic.string)(data))
+
+    Ok(CreatureDTO(
+      name: name,
+      id: id,
+      health: "100",
+      moves: [],
+      stats: StatsDTO(
+        hp: hp,
+        attack: atk,
+        defense: defense,
+        speed: spd,
+        special_atk: spca,
+        special_def: spcd,
+      ),
+      dualtype: types.DualType(
+        types.string_to_type(type1),
+        types.string_to_type(type2),
+      ),
+      active_status: move.NONE,
+    ))
+  }
+}
+
 pub fn read_moves_from_json(json_string: String) -> List(Move) {
   let move_decoder =
     dynamic.decode6(
@@ -181,4 +260,11 @@ pub fn read_moves_from_json(json_string: String) -> List(Move) {
       priority: move.Normal,
     )
   })
+}
+
+fn string_to_int(s: String) -> Int {
+  case int.parse(s) {
+    Ok(i) -> i
+    Error(_) -> 0
+  }
 }

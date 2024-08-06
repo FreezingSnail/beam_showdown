@@ -1,9 +1,7 @@
 import gleam/dynamic.{field, int, list, string}
-import gleam/int
-import gleam/json
 import gleam/list
 
-import core/party.{type PlayerState}
+import core/party.{type PlayerState, CreatureParty}
 import lib/creature.{type Creature}
 import lib/data
 import lib/move.{type Move, Move}
@@ -47,7 +45,8 @@ pub fn random_move() -> Move {
 pub fn random_party() -> PlayerState {
   let active = random_creature()
   party.PlayerState(
-    party: #(active, random_creature(), random_creature()),
+    party: CreatureParty(active, random_creature(), random_creature()),
     active_creature: active,
+    slot: party.First,
   )
 }

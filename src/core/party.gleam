@@ -1,3 +1,5 @@
+import gleam/int
+
 import lib/creature.{type Creature}
 import lib/data
 import lib/move.{type Effect}
@@ -29,6 +31,10 @@ pub fn build_party(first, second, third: Int) -> PlayerState {
     active_creature: c1,
     slot: First,
   )
+}
+
+pub fn build_random_party() -> PlayerState {
+  build_party(int.random(30), int.random(30), int.random(30))
 }
 
 pub fn set_active_creature(

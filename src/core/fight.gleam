@@ -22,6 +22,18 @@ pub type TurnResult {
   Change(state: FightState, name: String)
 }
 
+pub fn new_random_fight() -> FightState {
+  FightState(
+    player1: party.build_random_party(),
+    player2: party.build_random_party(),
+    turn_log: [],
+  )
+}
+
+pub fn new_fight(p1, p2: PlayerState) -> FightState {
+  FightState(player1: p1, player2: p2, turn_log: [])
+}
+
 pub fn calculate_damage(input: Move, source: Creature, target: Creature) -> Int {
   let damage =
     { input.power * source.stats.attack } / { target.stats.defense / 2 }

@@ -10,7 +10,7 @@ defmodule Showdown.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       archives: [mix_gleam: "~> 0.6"],
-      compilers: [:gleam | Mix.compilers()],
+      # compilers: [:gleam | Mix.compilers()],
       aliases: [
         # Or add this to your aliases function
         "deps.get": ["deps.get", "gleam.deps.get"]
@@ -38,8 +38,8 @@ defmodule Showdown.MixProject do
     [
       {:gleam_stdlib, "~> 0.34 or ~> 1.0"},
       {:gleeunit, "~> 1.0", only: [:dev, :test], runtime: false},
-      {:gleam_json, "~> 2.0.0 or ~> 3.0.0"},
-      {:decode,  "~> 0.2.0 or ~> 1.0.0"}
+      {:gleam_json, "~> 1.0.0"},
+      {:decode, "~> 0.2.0 or ~> 1.0.0"}
 
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
